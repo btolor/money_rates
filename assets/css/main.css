@@ -529,11 +529,26 @@ main .rates .selector-sec #selector:focus {
   border-bottom: none;
 }
 
-main .rates .selector-sec .exchange-rates {
-  border-top: 3px solid green;
+main .rates .selector-sec .exchange-rates .grid {
+  padding: 30px 180px;
 }
 
-main .rates .selector-sec .exchange-rates .stats {
+main .rates .selector-sec .exchange-rates .grid .rate {
+  border: 0.5px solid #373d3f;
+  border-radius: 8px;
+  border-top-color: green;
+  padding-bottom: 8px;
+}
+
+main .rates .selector-sec .exchange-rates .grid .rate .stats {
+  padding-top: 18px;
+  border-top: 3px solid green;
+  -webkit-border-top-left-radius: 8px;
+  -webkit-border-top-right-radius: 8px;
+  -moz-border-radius-topleft: 8px;
+  -moz-border-radius-topright: 8px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -541,8 +556,38 @@ main .rates .selector-sec .exchange-rates .stats {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .rates .selector-sec .exchange-rates .grid .rate .stats img {
+  width: 30px;
+  height: 30px;
+}
+
+main .rates .selector-sec .exchange-rates .grid .rate .stats .currency {
+  font-family: "Raleway", "Open Sans", sans-serif;
+  font-size: 24px;
+  color: #373d3f;
+  margin-bottom: 0;
+  padding-left: 16px;
+}
+
+main .rates .selector-sec .exchange-rates .grid .rate hr {
+  width: 90%;
+  margin-top: 14px;
+  margin-bottom: 14px;
+}
+
+main .rates .selector-sec .exchange-rates .grid .rate p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 22px;
+  color: #373d3f;
+  margin-bottom: 0;
 }
 
 footer {

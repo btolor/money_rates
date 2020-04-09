@@ -305,12 +305,42 @@ main
                     outline: none
                     border-bottom: none
             .exchange-rates
-                border-top: 3px solid green
-                .stats
-                    +fullFlex(flex,row,space-around)
-
-
-
+                .grid
+                    padding: 30px 180px
+                    .rate
+                        border: .5px solid $raven  
+                        border-radius: 8px
+                        border-top-color: green
+                        padding-bottom: 8px
+                        .stats
+                            padding-top: 18px
+                            border-top: 3px solid green
+                            -webkit-border-top-left-radius: 8px
+                            -webkit-border-top-right-radius: 8px
+                            -moz-border-radius-topleft: 8px
+                            -moz-border-radius-topright: 8px
+                            border-top-left-radius: 8px
+                            border-top-right-radius: 8px
+                            +fullFlex(flex,row,center)
+                            align-items: center
+                            img 
+                                width: 30px
+                                height: 30px
+                            .currency
+                                font-family: $font-text
+                                font-size: 24px
+                                color: $raven
+                                margin-bottom: 0
+                                padding-left: 16px
+                        hr 
+                            width: 90%
+                            margin-top: 14px
+                            margin-bottom: 14px
+                        p 
+                            font-family: 'Open Sans', sans-serif
+                            font-size: 22px
+                            color: $raven
+                            margin-bottom: 0
 // Footer-Section Styles...
 footer 
     background: $sailor-blue

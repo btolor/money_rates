@@ -1,0 +1,70 @@
+//MIXINS...
+// Media Queries Mixin...
+//Media query for responsive design...
+//Max-Width...
+=media-max($screen)
+    @media screen and (max-width: $screen)
+        @content
+
+//Min-Width...
+=media-min($screen)
+    @media screen and (min-width: $screen)
+        @content
+
+//Center Div...       
+=center($width, $margin)
+    width: $width
+    margin: $margin
+
+//Font Family Size Color Weight Styling...
+=text($text,$color,$size,$weight)
+    font-family: $text
+    color: $color
+    font-size: $size
+    font-weight: $weight
+
+//Display Flex...
+=flex($flex,$direction)
+    display: $flex
+    flex-direction: $direction
+
+//Display Flex Content...
+=fullFlex($flex,$direction,$content)
+    display: $flex
+    flex-direction: $direction
+    justify-content: $content
+    
+//Display Grid Rows...
+=grid-rows($grid,$rows)
+    display: $grid
+    grid-auto-rows: $rows
+
+//Display Grid Columns...
+=grid-rows($grid,$columns)
+    display: $grid
+    grid-template-columns: $columns
+
+//Custom anchor tag button styling...
+=btns($decoration, $color, $weight, $font, $transform, $size, $width, $margin, $bg-color, $radius, $padding, $transition)
+    text-decoration: $decoration
+    color: $color
+    font-weight: $weight
+    font-family: $font
+    text-transform: $transform
+    font-size: $size
+    width: $width
+    margin:  $margin
+    background-color: $bg-color
+    border-radius: $radius
+    padding: $padding
+    transition: $transition
+
+//Background Image...
+=bg-img($img,$size)
+    background-image: url($img)
+    background-size: $size
+
+//Input Field PlaceHolder Color...
+=placeholder-color($color)
+  &.placeholder
+    color: $color

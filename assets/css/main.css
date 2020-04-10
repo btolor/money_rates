@@ -476,6 +476,10 @@ main .newsletter .grid .form button:hover {
   color: #ADEFD1FF;
 }
 
+main .rates {
+  padding-top: 50px;
+}
+
 main .rates .selector-sec {
   text-align: center;
 }
@@ -485,6 +489,18 @@ main .rates .selector-sec #title {
   color: #373d3f;
   font-size: 48px;
   margin-bottom: 0;
+}
+
+@media screen and (max-width: 700px) {
+  main .rates .selector-sec #title {
+    font-size: 40px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  main .rates .selector-sec #title {
+    font-size: 36px;
+  }
 }
 
 main .rates .selector-sec .current {
@@ -501,10 +517,34 @@ main .rates .selector-sec .current {
   padding: 30px 0 40px;
 }
 
+@media screen and (max-width: 380px) {
+  main .rates .selector-sec .current {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
 main .rates .selector-sec .current #current-flag {
   width: 30px;
   height: 30px;
   margin-right: 8px;
+}
+
+@media screen and (max-width: 700px) {
+  main .rates .selector-sec .current #current-flag {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  main .rates .selector-sec .current #current-flag {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto;
+  }
 }
 
 main .rates .selector-sec .current #current-currency {
@@ -513,6 +553,19 @@ main .rates .selector-sec .current #current-currency {
   font-size: 28px;
   font-weight: 600;
   margin-bottom: 0;
+}
+
+@media screen and (max-width: 700px) {
+  main .rates .selector-sec .current #current-currency {
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  main .rates .selector-sec .current #current-currency {
+    padding-top: 12px;
+    font-size: 20px;
+  }
 }
 
 main .rates .selector-sec #selector {
@@ -524,6 +577,13 @@ main .rates .selector-sec #selector {
   font-size: 20px;
 }
 
+@media screen and (max-width: 400px) {
+  main .rates .selector-sec #selector {
+    width: 80%;
+    font-size: 16px;
+  }
+}
+
 main .rates .selector-sec #selector:focus {
   outline: none;
   border-bottom: none;
@@ -533,15 +593,47 @@ main .rates .selector-sec .exchange-rates .grid {
   padding: 30px 180px;
 }
 
+@media screen and (max-width: 1024px) {
+  main .rates .selector-sec .exchange-rates .grid {
+    padding: 30px 100px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  main .rates .selector-sec .exchange-rates .grid {
+    padding: 30px 40px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  main .rates .selector-sec .exchange-rates .grid {
+    padding: 30px 100px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  main .rates .selector-sec .exchange-rates .grid {
+    padding: 30px 40px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  main .rates .selector-sec .exchange-rates .grid {
+    padding: 30px 20px;
+  }
+}
+
 main .rates .selector-sec .exchange-rates .grid .rate {
-  border: 0.5px solid #373d3f;
   border-radius: 8px;
-  border-top-color: green;
   padding-bottom: 8px;
+  -webkit-box-shadow: 0 8px 6px -6px #373d3f;
+  box-shadow: 0 8px 6px -6px #373d3f;
+  margin-bottom: 20px;
+  background: #00203FFF;
 }
 
 main .rates .selector-sec .exchange-rates .grid .rate .stats {
-  padding-top: 18px;
+  padding: 18px 40px 0;
   border-top: 3px solid green;
   -webkit-border-top-left-radius: 8px;
   -webkit-border-top-right-radius: 8px;
@@ -556,9 +648,6 @@ main .rates .selector-sec .exchange-rates .grid .rate .stats {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -569,25 +658,64 @@ main .rates .selector-sec .exchange-rates .grid .rate .stats img {
   height: 30px;
 }
 
+@media screen and (max-width: 900px) {
+  main .rates .selector-sec .exchange-rates .grid .rate .stats img {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  main .rates .selector-sec .exchange-rates .grid .rate .stats img {
+    width: 20px;
+    height: 20px;
+  }
+}
+
 main .rates .selector-sec .exchange-rates .grid .rate .stats .currency {
   font-family: "Raleway", "Open Sans", sans-serif;
   font-size: 24px;
-  color: #373d3f;
+  color: white;
   margin-bottom: 0;
-  padding-left: 16px;
+  padding-left: 36px;
+}
+
+@media screen and (max-width: 900px) {
+  main .rates .selector-sec .exchange-rates .grid .rate .stats .currency {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  main .rates .selector-sec .exchange-rates .grid .rate .stats .currency {
+    font-size: 18px;
+  }
 }
 
 main .rates .selector-sec .exchange-rates .grid .rate hr {
   width: 90%;
   margin-top: 14px;
   margin-bottom: 14px;
+  color: #ADEFD1FF;
 }
 
 main .rates .selector-sec .exchange-rates .grid .rate p {
   font-family: 'Open Sans', sans-serif;
   font-size: 22px;
-  color: #373d3f;
+  color: white;
   margin-bottom: 0;
+}
+
+@media screen and (max-width: 900px) {
+  main .rates .selector-sec .exchange-rates .grid .rate p {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  main .rates .selector-sec .exchange-rates .grid .rate p {
+    font-size: 18px;
+  }
 }
 
 footer {

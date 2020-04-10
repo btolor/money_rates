@@ -274,6 +274,7 @@ main
                         color: $mint
     // Rates-Section Styles...
     .rates
+        padding-top: 50px 
         .selector-sec
             text-align: center
             #title
@@ -281,19 +282,37 @@ main
                 color: $raven 
                 font-size: 48px
                 margin-bottom: 0
+                +media-max(700px)
+                    font-size: 40px
+                +media-max(450px)
+                    font-size: 36px
             .current 
                 +fullFlex(flex,row,center)
                 padding: 30px 0 40px
+                +media-max(380px)
+                    flex-direction: column
                 #current-flag
                     width: 30px
                     height: 30px
                     margin-right: 8px
+                    +media-max(700px)
+                        width: 26px
+                        height: 26px
+                    +media-max(380px)
+                        width: 40px
+                        height: 40px
+                        margin: 0 auto
                 #current-currency
                     color: $raven 
                     font-family: $font-text 
                     font-size: 28px
                     font-weight: 600
                     margin-bottom: 0
+                    +media-max(700px)
+                        font-size: 24px
+                    +media-max(380px)
+                        padding-top: 12px
+                        font-size: 20px
             #selector
                 width: 360px
                 border-radius: 10px
@@ -301,19 +320,39 @@ main
                 font-family: $font-text 
                 font-weight: 400 
                 font-size: 20px
+                +media-max(400px)
+                    width: 80%
+                    font-size: 16px
+                // +media-max(375px)
+                //     font-size: 
                 &:focus
                     outline: none
                     border-bottom: none
             .exchange-rates
                 .grid
                     padding: 30px 180px
+                    +media-max(1024px)
+                        padding: 30px 100px
+                    +media-max(800px)
+                        padding: 30px 40px
+                    +media-max(640px)
+                        padding: 30px 100px
+                    +media-max(500px)
+                        padding: 30px 40px
+                    +media-max(380px)
+                        padding: 30px 20px
                     .rate
-                        border: .5px solid $raven  
+                        // border: .5px solid $raven  
+                        // border-top: none
                         border-radius: 8px
-                        border-top-color: green
                         padding-bottom: 8px
+                        -moz-box-shadow: 0 8px 6px -6px $raven
+                        -webkit-box-shadow: 0 8px 6px -6px $raven
+                        box-shadow: 0 8px 6px -6px $raven
+                        margin-bottom: 20px
+                        background: $sailor-blue
                         .stats
-                            padding-top: 18px
+                            padding: 18px 40px 0
                             border-top: 3px solid green
                             -webkit-border-top-left-radius: 8px
                             -webkit-border-top-right-radius: 8px
@@ -321,26 +360,41 @@ main
                             -moz-border-radius-topright: 8px
                             border-top-left-radius: 8px
                             border-top-right-radius: 8px
-                            +fullFlex(flex,row,center)
+                            +flex(flex,row)
                             align-items: center
                             img 
                                 width: 30px
                                 height: 30px
+                                +media-max(900px)
+                                    width: 25px
+                                    height: 25px
+                                +media-max(380px)
+                                    width: 20px
+                                    height: 20px
                             .currency
                                 font-family: $font-text
                                 font-size: 24px
-                                color: $raven
+                                color: white
                                 margin-bottom: 0
-                                padding-left: 16px
+                                padding-left: 36px
+                                +media-max(900px)
+                                    font-size: 20px
+                                +media-max(380px)
+                                    font-size: 18px
                         hr 
                             width: 90%
                             margin-top: 14px
                             margin-bottom: 14px
+                            color: $mint
                         p 
                             font-family: 'Open Sans', sans-serif
                             font-size: 22px
-                            color: $raven
+                            color: white
                             margin-bottom: 0
+                            +media-max(900px)
+                                font-size: 20px
+                            +media-max(380px)
+                                font-size: 18px
 // Footer-Section Styles...
 footer 
     background: $sailor-blue

@@ -316,113 +316,173 @@ $(function () {
         'red', 'orange', 'lime', 'purple', 'yellow', 'teal', 'maroon', 'olive', 'fuchsia', 'aqua','red'
     ]
     
-
-    let currentCurrency = curerncies.filter((currency) => {
-        return currency.code === 'USD'
-    })
-    $('#current-flag').attr('src', currentCurrency[0].flag);
-    $('#current-currency').html(
-        currentCurrency[0].code + ':  ' + currentCurrency[0].currency
-    )
-
-    let counter = 0
-    
-    curerncies.forEach((currency) => {
-
-        if (currency.code != currentCurrency[0].code) {
-            $(".exchange-rates .grid").append(
-                "<!-- start of rate --><div class='cell small-12 medium-6 large-6 rate' style='border-top: 1px solid " + colors[counter] + ";'>" +
-                "<!-- start of stats --><div class='stats' style='border-top: 5px solid " + colors[counter] + ";'>" +
-                "<img class='flag' src=" + currency.flag + "  alt='This is the country flag of my current currency.'>" +
-                "<h6 class='currency'>" + currency.currency + "</h6></div><hr><!-- end of stats --><p>$ 23</p></div><!-- end of rate -->"
-            )
-        }
-        counter++
+    $('#selector').on('change', ()=> {
+        let selected = $('#selector').val()  
+        change(selected)
     })
 
+    let change = (val) => {
+        let currentCurrency = curerncies.filter((currency) => {
+            return currency.code === val
+        })
+        $('#current-flag').attr('src', currentCurrency[0].flag)
+        $('#current-currency').html(
+            currentCurrency[0].code + ':  ' + currentCurrency[0].currency
+        )
+        $('#current-value').html(
+            currentCurrency[0].symbol + '  1'
+        )
+        let counter = 0
 
+        $('.rate').remove()
 
+        curerncies.forEach((currency) => {
 
-
-
-
-
-
-
-
-
-
-    curerncies.forEach((s) => {
-        if (s.code != currentCurrency[0].code) {
-            $('#selector').append(
-                "<option value=" + s.code + ">" + s.code + ":  " + s.currency + "</option>"
-            )
-        }
-
-    })
-
-
-
-
-
-
-
-    // Api Key...
-    const key = '14ebc28191939c6f4f85f340'
-    let endPoint = 'https://prime.exchangerate-api.com/v5/' //Example: https://prime.exchangerate-api.com/v5/YOUR-API-KEY/latest/USD
-
-    let code = 'usd'.toUpperCase()
-
-
-    $('#submit').on('click', () => {
-        code = $('#u-input').val();
-        code = code.trim().toUpperCase()
-
-
-
-        let checkInput = curerncies.some((type) => {
-            return type.code === code
+            if (currency.code != currentCurrency[0].code) {
+                $(".exchange-rates .grid").append(
+                    "<!-- start of rate --><div class='cell small-12 medium-6 large-6 rate' style='border-top: 1px solid " + colors[counter] + ";'>" +
+                    "<!-- start of stats --><div class='stats' style='border-top: 5px solid " + colors[counter] + ";'>" +
+                    "<img class='flag' src=" + currency.flag + "  alt='This is the country flag of my current currency.'>" +
+                    "<h6 class='currency'>" + currency.currency + "</h6></div><hr><!-- end of stats --><p>" + currency.symbol + " 23</p></div><!-- end of rate -->"
+                )
+            }
+            counter++
         })
 
+        $('#selector option').remove()
+        $('#selector').append(
+            "<option value=" + currentCurrency[0].code + ">" + currentCurrency[0].code + ":  " + currentCurrency[0].currency + "</option>"
+        )
+        curerncies.forEach((s) => {
+            if (s.code != currentCurrency[0].code) {
+                $('#selector').append(
+                    "<option value=" + s.code + ">" + s.code + ":  " + s.currency + "</option>"
+                )
+            }
+    
+        })
+    }
 
+    let init = ()=>{
+        let currentCurrency = curerncies.filter((currency) => {
+            return currency.code === 'USD'
+        })
+        $('#current-flag').attr('src', currentCurrency[0].flag)
+        $('#current-currency').html(
+            currentCurrency[0].code + ':  ' + currentCurrency[0].currency
+        )
+        $('#current-value').html(
+            currentCurrency[0].symbol + '  1'
+        )
+        let counter = 0
+    
+        curerncies.forEach((currency) => {
+    
+            if (currency.code != currentCurrency[0].code) {
+                $(".exchange-rates .grid").append(
+                    "<!-- start of rate --><div class='cell small-12 medium-6 large-6 rate' style='border-top: 1px solid " + colors[counter] + ";'>" +
+                    "<!-- start of stats --><div class='stats' style='border-top: 5px solid " + colors[counter] + ";'>" +
+                    "<img class='flag' src=" + currency.flag + "  alt='This is the country flag of my current currency.'>" +
+                    "<h6 class='currency'>" + currency.currency + "</h6></div><hr><!-- end of stats --><p>" + currency.symbol + " 23</p></div><!-- end of rate -->"
+                )
+            }
+            counter++
+        })
+    
+        curerncies.forEach((s) => {
+            if (s.code != currentCurrency[0].code) {
+                $('#selector').append(
+                    "<option value=" + s.code + ">" + s.code + ":  " + s.currency + "</option>"
+                )
+            }
+    
+        })
+    }
 
-        if (checkInput) {
-            console.log(code)
-            let getRequest = endPoint + key + '/latest/' + code
+    init()
+    
 
-            let request = $.ajax({
-                url: getRequest,
-                method: "GET"
-            })
-
-            request.done((data) => {
-                console.log(data.conversion_rates)
-                console.log(Object.keys(data.conversion_rates))
-            })
-
-
-        } else {
-            console.log("Error")
-            let getRequest = endPoint + key + '/latest/USD'
-
-            let request = $.ajax({
-                url: getRequest,
-                method: "GET"
-            })
-
-            request.done((data) => {
-                console.log(data.conversion_rates)
-                console.log(Object.keys(data.conversion_rates))
-            })
-
-        }
-
-
-
-
-
-
+    let conversionCurrency = curerncies.filter((currency) => {
+        return currency.code === 'USD'
     })
+    $('#convert-currency').append(
+        "<option value=" + conversionCurrency[0].code + ">" + conversionCurrency[0].symbol + "  " + conversionCurrency[0].code + "</option>"
+    )
+    
+    curerncies.forEach((c) => {
+        if (c.code != conversionCurrency[0].code) {
+            $('#convert-currency').append(
+                "<option value=" + c.code + ">" + c.symbol + "  " + c.code + "</option>"
+            )
+        }
+    })
+    curerncies.forEach((c) => {
+        $('#convert-to-currency').append(
+            "<option value=" + c.code + ">" + c.symbol + "  " + c.code + "</option>"
+        )
+    })
+
+    $('#convert-btn').on('click', ()=> {
+        let ammount  = $('#convert-num').val()
+        let convert  = $('#convert-currency').val()
+        let convertTo  = $('#convert-to-currency').val()
+    })
+
+  
+
+    // Api Key...
+    // const key = '14ebc28191939c6f4f85f340'
+    // let endPoint = 'https://prime.exchangerate-api.com/v5/' //Example: https://prime.exchangerate-api.com/v5/YOUR-API-KEY/latest/USD
+
+    // let code = 'usd'.toUpperCase()
+
+
+    // $('#submit').on('click', () => {
+    //     code = $('#u-input').val();
+    //     code = code.trim().toUpperCase()
+
+
+
+    //     let checkInput = curerncies.some((type) => {
+    //         return type.code === code
+    //     })
+
+
+
+    //     if (checkInput) {
+    //         console.log(code)
+    //         let getRequest = endPoint + key + '/latest/' + code
+
+    //         let request = $.ajax({
+    //             url: getRequest,
+    //             method: "GET"
+    //         })
+
+    //         request.done((data) => {
+    //             console.log(data.conversion_rates)
+    //             console.log(Object.keys(data.conversion_rates))
+    //         })
+
+
+    //     } else {
+    //         console.log("Error")
+    //         let getRequest = endPoint + key + '/latest/USD'
+
+    //         let request = $.ajax({
+    //             url: getRequest,
+    //             method: "GET"
+    //         })
+
+    //         request.done((data) => {
+    //             console.log(data.conversion_rates)
+    //             console.log(Object.keys(data.conversion_rates))
+    //         })
+
+    //     }
+
+
+
+    // })
 
 
     $('#open-mobile-btn').on('click', () => {

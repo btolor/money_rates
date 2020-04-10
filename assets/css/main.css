@@ -197,6 +197,10 @@ main {
   }
 }
 
+main .converter {
+  background: #ADEFD1FF;
+}
+
 main .top .grid-container .grid {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -514,7 +518,7 @@ main .rates .selector-sec .current {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding: 30px 0 40px;
+  padding: 30px 0;
 }
 
 @media screen and (max-width: 380px) {
@@ -566,6 +570,13 @@ main .rates .selector-sec .current #current-currency {
     padding-top: 12px;
     font-size: 20px;
   }
+}
+
+main .rates .selector-sec #current-value {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  font-size: 32px;
+  margin-bottom: 28px;
 }
 
 main .rates .selector-sec #selector {

@@ -59,6 +59,42 @@
     <!-- start of main -->
     <main>
 
+        <!-- start of converter-section -->
+        <section class="converter">
+            <!-- start of grid-container -->
+            <div class="grid-container">
+                <!-- start of grid -->
+                <div class="grid-x grid-margin-x grid">
+                    <h1 class="cell small-12 medium-12 large-12" id="title">Convert Your Currency</h1>
+                    <!-- start of to-convert -->
+                    <div class="cell large-6 to-convert">
+                        <label for="convert-num" style="position: absolute; color: transparent;">Convert Number</label>
+                        <input type="number" name="convert-num" id="convert-num">
+                        <label for="convert-currency" style="position: absolute; color: transparent;">Convert
+                            Currency</label>
+                        <select name="convert-currency" id="convert-currency"></select>
+                    </div>
+                    <!-- end of to-convert -->
+                    <!-- start of convert-to -->
+                    <div class="cell large-3 convert-to">
+                        <label for="convert-to-currency" style="position: absolute; color: transparent;">Convert To
+                            Currency</label>
+                        <select name="convert-to-currency" id="convert-to-currency"></select>
+                    </div>
+                    <!-- end of convert-to -->
+                    <!-- start of convert -->
+                    <div class="cell large-3 convert">
+                        <button type="submit" id="convert-btn"><i class="fa fa-angle-double-left"
+                                aria-hidden="true"></i></button>
+                    </div>
+                    <!-- end of convert -->
+                </div>
+                <!-- end of grid -->
+            </div>
+            <!-- end of grid-container -->
+        </section>
+        <!-- end of converter-section -->
+
         <!-- start of top-section -->
         <section class="top">
             <!-- start of grid-container -->
@@ -156,7 +192,6 @@
         <!-- start of rates-section -->
         <section class="rates">
 
-
             <!-- start of selector-sec -->
             <div class="selector-sec">
                 <h1 id="title">Currency Exchange Rates</h1>
@@ -165,6 +200,7 @@
                     <img id="current-flag" src="" alt="This is the country flag of my current currency.">
                     <h3 id="current-currency"></h3>
                 </div>
+                <h6 id="current-value"></h6>
                 <!-- end of current -->
                 <label for="selector" style="position: absolute;color: transparent;">Currency</label>
                 <select name="currency" id="selector">
@@ -175,17 +211,12 @@
                 <div class="grid-container exchange-rates">
                     <!-- start of grid -->
                     <div class="grid-x grid-margin-x grid">
-
-                        
-
                     </div>
                     <!-- end of selector-sec -->
                 </div>
                 <!-- end of grid -->
             </div>
             <!-- end of grid-container -->
-
-
 
             </div>
             <!-- end of exchange-rates -->

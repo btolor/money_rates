@@ -11,6 +11,11 @@
     @media screen and (min-width: $screen)
         @content
 
+// Exact-Width...
+=media-exact($screen)
+    @media screen and (min-width: $screen) and (max-width: $screen)
+        @content
+
 //Center Div...       
 =center($width, $margin)
     width: $width

@@ -363,10 +363,42 @@ $(function () {
         })
     }
 
-    let init = ()=>{
+
+
+    let convertInit = ()=>{
         let currentCurrency = curerncies.filter((currency) => {
             return currency.code === 'USD'
         })
+
+        let counter = 0
+    
+        curerncies.forEach((currency) => {
+    
+            if (currency.code != currentCurrency[0].code) {
+                $(".calcu-rates .grid").append(
+                    "<!-- start of rate --><div class='cell small-12 medium-6 large-6 rate' style='border-top: 1px solid " + colors[counter] + ";'>" +
+                    "<!-- start of stats --><div class='stats' style='border-top: 5px solid " + colors[counter] + ";'>" +
+                    "<img class='flag' src=" + currency.flag + "  alt='This is the country flag of my current currency.'>" +
+                    "<h6 class='currency'>" + currency.currency + "</h6></div><hr><!-- end of stats --><p>" + currency.symbol + " 23</p></div><!-- end of rate -->"
+                )
+            }
+            counter++
+        })
+    }
+
+    convertInit()
+
+
+
+
+
+
+    let init = ()=>{
+
+        let currentCurrency = curerncies.filter((currency) => {
+            return currency.code === 'USD'
+        })
+        
         $('#current-flag').attr('src', currentCurrency[0].flag)
         $('#current-currency').html(
             currentCurrency[0].code + ':  ' + currentCurrency[0].currency

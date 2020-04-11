@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Money Rates</title>
+    <title>Money Rates Conversion Tool</title>
     <!-- FontAwesome Icons -->
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
@@ -51,8 +51,9 @@
         <!-- start of menu -->
         <div class="menu">
             <a href="#/" id="close-mobile-btn">&#8757;</a>
-            <a href="convert.html" class="links">Convert Money</a>
+            <a href="convert.html" class="links">Convert Mnoey</a>
             <a href="#/" class="links">ExchangeRate-API.Com</a>
+            
         </div>
         <!-- end of menu -->
     </div>
@@ -60,79 +61,84 @@
     <!-- start of main -->
     <main>
 
-        <!-- start of top-section -->
-        <section class="top">
+        <!-- start of converter-section -->
+        <section class="converter">
             <!-- start of grid-container -->
             <div class="grid-container">
                 <!-- start of grid -->
                 <div class="grid-x grid-margin-x grid">
-                    <!-- start of left-side -->
-                    <div class="cell small-12 medium-6 large-6 left-side">
-                        <h3 id="sub-heading">World Money Value</h3>
-                        <p>
-                            Know the real value of your money wherever you are in the world.
-                            Find out how much your currency exchange rate is across the globe.
-                        </p>
-                        <a href="convert.html">convert currency</a>
+                    <h1 class="cell small-12 medium-12 large-12" id="title">Convert Your Currency</h1>
+
+
+                    <!-- start of to-convert -->
+                    <div class="cell small-12 medium-12 large-7 to-convert">
+                        <label for="convert-num" style="position: absolute; color: transparent;top: 0;">Convert
+                            Number</label>
+                        <input type="number" name="convert-num" id="convert-num" min="0" placeholder="Ammount:">
+                        <label for="convert-currency" style="position: absolute; color: transparent;top: 0;">Convert
+                            Currency</label>
+                        <select name="convert-currency" id="convert-currency"></select>
+
                     </div>
-                    <!-- end of left-side -->
-                    <!-- start of right-side -->
-                    <div class="cell small-12 medium-6 large-6 right-side">
-                        <img src="assets/images/multi-currency.png"
-                            alt="This is the top section image to display some different multicultural currencies.">
+                    <!-- end of to-convert -->
+                    <!-- start of convert-to -->
+                    <div class="cell small-12 medium-12 large-5 convert-to">
+                        <label for="convert-to-currency" style="position: absolute; color: transparent;top: 0;">Convert
+                            To
+                            Currency</label>
+                        <select name="convert-to-currency" id="convert-to-currency"></select>
+                        <button type="submit" id="convert-btn"><i class="fa fa-angle-double-left"
+                                aria-hidden="true"></i></button>
+                        <button type="submit" id="responsive-btn">Calculate</button>
                     </div>
-                    <!-- end of right-side -->
+                    <!-- end of convert-to -->
+
                 </div>
                 <!-- end of grid -->
             </div>
             <!-- end of grid-container -->
         </section>
-        <!-- end of top-section -->
-
-        <!-- start of info-section -->
-        <section class="info">
+        <!-- end of converter-section -->
+        <!-- start of results-section -->
+        <section' class="results">
             <!-- start of grid-container -->
             <div class="grid-container">
                 <!-- start of grid -->
                 <div class="grid-x grid-margin-x grid">
-                    <!-- start of glabal -->
-                    <div class="cell small-12 medium-6 large-3 slot global">
-                        <img src="assets/images/world.png" alt="">
-                        <!-- <i class="fa fa-globe" aria-hidden="true"></i> -->
-                        <h5 class="title">Global Exchange Rate</h5>
-                        <p>50 currencies and codes used in 70+ countries.</p>
+                    <!-- start of original -->
+                    <div class="cell small-12 medium-5 large-5 original">
+                        <img src="assets/images/united-states.png"
+                            alt="This is the country flag of my current currency.">
+                        <h6 class="dollar">2156.80</h6>
                     </div>
-                    <!-- end of global -->
-                    <!-- start of accurate -->
-                    <div class="cell small-12 medium-6 large-3 slot accurate">
-                        <!-- <i class="fa fa-bullseye" aria-hidden="true"></i> -->
-                        <img src="assets/images/accuracy.png" alt="">
-                        <h5 class="title">Accurate Exchange Rates</h5>
-                        <p>Multiple sources for stable and reliable data.</p>
+                    <!-- end of original -->
+                    <span class="cell small-0 medium-2 large-2">=</span>
+                    <!-- start of result -->
+                    <div class="cell small-12 medium-5 large-5 result">
+                        <img src="assets/images/united-arab-emirates.png"
+                            alt="This is the country flag of my current currency.">
+                        <h6 class="dollar">2300.52</h6>
                     </div>
-                    <!-- end of accurate -->
-                    <!-- start of exceptional -->
-                    <div class="cell small-12 medium-6 large-3 slot exceptional">
-                        <!-- <i class="fa fa-trophy" aria-hidden="true"></i> -->
-                        <img src="assets/images/product.png" alt="">
-                        <h5 class="title">Exceptional Uptime</h5>
-                        <p>ExchangeRate-API 24/7 uptime and support!</p>
-                    </div>
-                    <!-- end of exceptional -->
-                    <!-- start of open -->
-                    <div class="cell small-12 medium-6 large-3 slot open">
-                        <!-- <i class="fa fa-unlock-alt" aria-hidden="true"></i> -->
-                        <img src="assets/images/unlocked.png" alt="">
-                        <h5 class="title">Open Access Free API</h5>
-                        <p>JSON responses and supports HTTP requests.</p>
-                    </div>
-                    <!-- end of open -->
+                    <!-- end of result -->
+
                 </div>
-                <!-- start of grid -->
+                <!-- end of grid -->
             </div>
             <!-- end of grid-container -->
         </section>
-        <!-- end of info-section -->
+        <!-- end of results-section -->
+
+        <section class="calcu-rates">
+            <!-- start of grid-container -->
+            <div class="grid-container">
+                <!-- start of grid -->
+                <div class="grid-x grid-margin-x grid">
+
+                </div>
+                <!-- end of grid -->
+            </div>
+            <!-- end of grid-container -->
+        </section>
 
         <!-- start of newsletter -->
         <section class="newsletter">
@@ -153,41 +159,6 @@
             <!-- end of grid-container -->
         </section>
         <!-- end of newsletter -->
-
-        <!-- start of rates-section -->
-        <section class="rates">
-
-            <!-- start of selector-sec -->
-            <div class="selector-sec">
-                <h1 id="title">Currency Exchange Rates</h1>
-                <!-- start of current -->
-                <div class="current">
-                    <img id="current-flag" src="" alt="This is the country flag of my current currency.">
-                    <h3 id="current-currency"></h3>
-                </div>
-                <h6 id="current-value"></h6>
-                <!-- end of current -->
-                <label for="selector" style="position: absolute;color: transparent;">Currency</label>
-                <select name="currency" id="selector">
-                    <option value="USD">USD: United States Dollar</option>
-                </select>
-
-                <!-- start of exchange-rates -->
-                <div class="grid-container exchange-rates">
-                    <!-- start of grid -->
-                    <div class="grid-x grid-margin-x grid">
-                    </div>
-                    <!-- end of selector-sec -->
-                </div>
-                <!-- end of grid -->
-            </div>
-            <!-- end of grid-container -->
-
-            </div>
-            <!-- end of exchange-rates -->
-
-        </section>
-        <!-- end of rates-section -->
 
     </main>
     <!-- end of main -->

@@ -1,6 +1,10 @@
 $(function () {
 
-    /**Different Curerncies Objects Array */
+    // Api Key...
+    const key = '14ebc28191939c6f4f85f340'
+    let endPoint = 'https://prime.exchangerate-api.com/v5/' //Example: https://prime.exchangerate-api.com/v5/YOUR-API-KEY/latest/USD
+
+    /**Different Curerncies Objects Array... */
     const curerncies = [{
             currency: 'UAE Dirham',
             code: 'AED',
@@ -309,18 +313,136 @@ $(function () {
         }
     ]
 
+    /**Different Rates Boxes Colors Array... */
     const colors = ['red', 'orange', 'lime', 'purple', 'yellow', 'teal', 'maroon', 'olive', 'fuchsia', 'aqua',
         'red', 'orange', 'lime', 'purple', 'yellow', 'teal', 'maroon', 'olive', 'fuchsia', 'aqua',
         'red', 'orange', 'lime', 'purple', 'yellow', 'teal', 'maroon', 'olive', 'fuchsia', 'aqua',
         'red', 'orange', 'lime', 'purple', 'yellow', 'teal', 'maroon', 'olive', 'fuchsia', 'aqua',
-        'red', 'orange', 'lime', 'purple', 'yellow', 'teal', 'maroon', 'olive', 'fuchsia', 'aqua','red'
+        'red', 'orange', 'lime', 'purple', 'yellow', 'teal', 'maroon', 'olive', 'fuchsia', 'aqua', 'red'
     ]
-    
-    $('#selector').on('change', ()=> {
-        let selected = $('#selector').val()  
-        change(selected)
-    })
 
+
+    /**Home Page Initial Load Function... */
+    let init = () => {
+
+        let currentCurrency = curerncies.filter((currency) => {
+            return currency.code === 'USD'
+        })
+
+        $('#current-flag').attr('src', currentCurrency[0].flag)
+        $('#current-currency').html(
+            currentCurrency[0].code + ':  ' + currentCurrency[0].currency
+        )
+        $('#current-value').html(
+            currentCurrency[0].symbol + '  1'
+        )
+
+
+        let getRequest = endPoint + key + '/latest/' + currentCurrency[0].code
+
+        let request = $.ajax({
+            url: getRequest,
+            method: "GET"
+        })
+
+        let response = request.done((data) => {
+
+            let counter = 0
+
+            curerncies.forEach((currency) => {
+
+                if (currency.code != currentCurrency[0].code) {
+                    $(".exchange-rates .grid").append(
+                        "<!-- start of rate --><div class='cell small-12 medium-6 large-6 rate' style='border-top: 1px solid " + colors[counter] + ";'>" +
+                        "<!-- start of stats --><div class='stats' style='border-top: 5px solid " + colors[counter] + ";'>" +
+                        "<img class='flag' src=" + currency.flag + "  alt='This is the country flag of my current currency.'>" +
+                        "<h6 class='currency'>" + currency.currency + "</h6></div><hr><!-- end of stats --><p>" + currency.symbol + " " + data.conversion_rates[currency.code] +
+                        "</p></div><!-- end of rate -->"
+                    )
+
+                }
+                counter++
+            })
+
+        })
+
+
+
+
+
+
+
+        curerncies.forEach((s) => {
+            if (s.code != currentCurrency[0].code) {
+                $('#selector').append(
+                    "<option value=" + s.code + ">" + s.code + ":  " + s.currency + "</option>"
+                )
+            }
+
+        })
+    }
+
+    /**Conversion Page Initial Load Function... */
+    let convertInit = () => {
+        let conversionCurrency = curerncies.filter((currency) => {
+            return currency.code === 'USD'
+        })
+
+
+        $('#convert-currency').append(
+            "<option value=" + conversionCurrency[0].code + ">" + conversionCurrency[0].symbol + "  " + conversionCurrency[0].code + "</option>"
+        )
+
+
+        curerncies.forEach((c) => {
+            if (c.code != conversionCurrency[0].code) {
+                $('#convert-currency').append(
+                    "<option value=" + c.code + ">" + c.symbol + "  " + c.code + "</option>"
+                )
+            }
+        })
+
+        curerncies.forEach((c) => {
+            $('#convert-to-currency').append(
+                "<option value=" + c.code + ">" + c.symbol + "  " + c.code + "</option>"
+            )
+        })
+
+
+
+
+        let getRequest = endPoint + key + '/latest/' + conversionCurrency[0].code
+
+        let request = $.ajax({
+            url: getRequest,
+            method: "GET"
+        })
+
+        let response = request.done((data) => {
+            $('.dollar').html("&#x24;" + data.conversion_rates["USD"].toFixed(2))
+            $('.converted-dollar').html("&#x62f;&#x2e;&#x625;" + data.conversion_rates["AED"].toFixed(2))
+
+            let counter = 0
+
+            curerncies.forEach((currency) => {
+
+                if (currency.code != conversionCurrency[0].code) {
+                    $(".calcu-rates .grid").append(
+                        "<!-- start of rate --><div class='cell small-12 medium-6 large-6 rate' style='border-top: 1px solid " + colors[counter] + ";'>" +
+                        "<!-- start of stats --><div class='stats' style='border-top: 5px solid " + colors[counter] + ";'>" +
+                        "<img class='flag' src=" + currency.flag + "  alt='This is the country flag of my current currency.'>" +
+                        "<h6 class='currency'>" + currency.currency + "</h6></div><hr><!-- end of stats --><p>" + currency.symbol + " " + data.conversion_rates[currency.code] +
+                        "</p></div><!-- end of rate -->"
+                    )
+                }
+                counter++
+            })
+
+        })
+
+    }
+
+    /**Home Page Currency Change Process Function... */
     let change = (val) => {
         let currentCurrency = curerncies.filter((currency) => {
             return currency.code === val
@@ -336,17 +458,31 @@ $(function () {
 
         $('.rate').remove()
 
-        curerncies.forEach((currency) => {
+        let getRequest = endPoint + key + '/latest/' + currentCurrency[0].code
 
-            if (currency.code != currentCurrency[0].code) {
-                $(".exchange-rates .grid").append(
-                    "<!-- start of rate --><div class='cell small-12 medium-6 large-6 rate' style='border-top: 1px solid " + colors[counter] + ";'>" +
-                    "<!-- start of stats --><div class='stats' style='border-top: 5px solid " + colors[counter] + ";'>" +
-                    "<img class='flag' src=" + currency.flag + "  alt='This is the country flag of my current currency.'>" +
-                    "<h6 class='currency'>" + currency.currency + "</h6></div><hr><!-- end of stats --><p>" + currency.symbol + " 23</p></div><!-- end of rate -->"
-                )
-            }
-            counter++
+        let request = $.ajax({
+            url: getRequest,
+            method: "GET"
+        })
+
+        let response = request.done((data) => {
+
+            let counter = 0
+
+            curerncies.forEach((currency) => {
+
+                if (currency.code != currentCurrency[0].code) {
+                    $(".exchange-rates .grid").append(
+                        "<!-- start of rate --><div class='cell small-12 medium-6 large-6 rate' style='border-top: 1px solid " + colors[counter] + ";'>" +
+                        "<!-- start of stats --><div class='stats' style='border-top: 5px solid " + colors[counter] + ";'>" +
+                        "<img class='flag' src=" + currency.flag + "  alt='This is the country flag of my current currency.'>" +
+                        "<h6 class='currency'>" + currency.currency + "</h6></div><hr><!-- end of stats --><p>" + currency.symbol + " " + data.conversion_rates[currency.code] +
+                        "</p></div><!-- end of rate -->"
+                    )
+                }
+                counter++
+            })
+
         })
 
         $('#selector option').remove()
@@ -359,164 +495,85 @@ $(function () {
                     "<option value=" + s.code + ">" + s.code + ":  " + s.currency + "</option>"
                 )
             }
-    
+
         })
     }
 
+    /**Conversion Page Conversion Process Function... */
+    let conversion = () => {
 
+        let ammount;
 
-    let convertInit = ()=>{
-        let currentCurrency = curerncies.filter((currency) => {
-            return currency.code === 'USD'
-        })
-
-        let counter = 0
-    
-        curerncies.forEach((currency) => {
-    
-            if (currency.code != currentCurrency[0].code) {
-                $(".calcu-rates .grid").append(
-                    "<!-- start of rate --><div class='cell small-12 medium-6 large-6 rate' style='border-top: 1px solid " + colors[counter] + ";'>" +
-                    "<!-- start of stats --><div class='stats' style='border-top: 5px solid " + colors[counter] + ";'>" +
-                    "<img class='flag' src=" + currency.flag + "  alt='This is the country flag of my current currency.'>" +
-                    "<h6 class='currency'>" + currency.currency + "</h6></div><hr><!-- end of stats --><p>" + currency.symbol + " 23</p></div><!-- end of rate -->"
-                )
-            }
-            counter++
-        })
-    }
-
-    convertInit()
-
-
-
-
-
-
-    let init = ()=>{
-
-        let currentCurrency = curerncies.filter((currency) => {
-            return currency.code === 'USD'
-        })
-        
-        $('#current-flag').attr('src', currentCurrency[0].flag)
-        $('#current-currency').html(
-            currentCurrency[0].code + ':  ' + currentCurrency[0].currency
-        )
-        $('#current-value').html(
-            currentCurrency[0].symbol + '  1'
-        )
-        let counter = 0
-    
-        curerncies.forEach((currency) => {
-    
-            if (currency.code != currentCurrency[0].code) {
-                $(".exchange-rates .grid").append(
-                    "<!-- start of rate --><div class='cell small-12 medium-6 large-6 rate' style='border-top: 1px solid " + colors[counter] + ";'>" +
-                    "<!-- start of stats --><div class='stats' style='border-top: 5px solid " + colors[counter] + ";'>" +
-                    "<img class='flag' src=" + currency.flag + "  alt='This is the country flag of my current currency.'>" +
-                    "<h6 class='currency'>" + currency.currency + "</h6></div><hr><!-- end of stats --><p>" + currency.symbol + " 23</p></div><!-- end of rate -->"
-                )
-            }
-            counter++
-        })
-    
-        curerncies.forEach((s) => {
-            if (s.code != currentCurrency[0].code) {
-                $('#selector').append(
-                    "<option value=" + s.code + ">" + s.code + ":  " + s.currency + "</option>"
-                )
-            }
-    
-        })
-    }
-
-    init()
-    
-
-    let conversionCurrency = curerncies.filter((currency) => {
-        return currency.code === 'USD'
-    })
-    $('#convert-currency').append(
-        "<option value=" + conversionCurrency[0].code + ">" + conversionCurrency[0].symbol + "  " + conversionCurrency[0].code + "</option>"
-    )
-    
-    curerncies.forEach((c) => {
-        if (c.code != conversionCurrency[0].code) {
-            $('#convert-currency').append(
-                "<option value=" + c.code + ">" + c.symbol + "  " + c.code + "</option>"
-            )
+        if ($('#convert-num').val() <= 0) {
+            ammount = Number(1).toFixed(2)
+            $('#convert-num').val(1)
+        } else {
+            ammount = Number($('#convert-num').val()).toFixed(2)
         }
+
+
+
+
+        let convertType = $('#convert-currency').val()
+        let convertObject = curerncies.filter((currency) => {
+            return currency.code === convertType
+        })
+        $('.original img').attr('src', convertObject[0].flag)
+
+        let convertToType = $('#convert-to-currency').val()
+        let convertToObject = curerncies.filter((currency) => {
+            return currency.code === convertToType
+        })
+        $('.result img').attr('src', convertToObject[0].flag)
+
+
+        $('.rate').remove()
+
+        let getRequest = endPoint + key + '/latest/' + convertType
+
+        let request = $.ajax({
+            url: getRequest,
+            method: "GET"
+        })
+
+        let response = request.done((data) => {
+            $('.dollar').html(convertObject[0].symbol + " " + ammount)
+            $('.converted-dollar').html(convertToObject[0].symbol + " " + (ammount * data.conversion_rates[convertToObject[0].code].toFixed(2)))
+
+            let counter = 0
+
+            curerncies.forEach((currency) => {
+
+                if (currency.code != convertObject[0].code) {
+                    $(".calcu-rates .grid").append(
+                        "<!-- start of rate --><div class='cell small-12 medium-6 large-6 rate' style='border-top: 1px solid " + colors[counter] + ";'>" +
+                        "<!-- start of stats --><div class='stats' style='border-top: 5px solid " + colors[counter] + ";'>" +
+                        "<img class='flag' src=" + currency.flag + "  alt='This is the country flag of my current currency.'>" +
+                        "<h6 class='currency'>" + currency.currency + "</h6></div><hr><!-- end of stats --><p>" +
+                        currency.symbol + " " + (data.conversion_rates[currency.code] * ammount).toFixed(2) + "</p></div><!-- end of rate -->"
+                    )
+                }
+                counter++
+            })
+
+        })
+
+
+    }
+
+    /**Home Page Change Event... */
+    $('#selector').on('change', () => {
+        let selected = $('#selector').val()
+        change(selected)
     })
-    curerncies.forEach((c) => {
-        $('#convert-to-currency').append(
-            "<option value=" + c.code + ">" + c.symbol + "  " + c.code + "</option>"
-        )
+
+    /**Conversion Page Click Event... */
+    $('#convert-btn, #responsive-btn').on('click', () => {
+        conversion()
     })
 
-    $('#convert-btn').on('click', ()=> {
-        let ammount  = $('#convert-num').val()
-        let convert  = $('#convert-currency').val()
-        let convertTo  = $('#convert-to-currency').val()
-    })
-
-  
-
-    // Api Key...
-    // const key = '14ebc28191939c6f4f85f340'
-    // let endPoint = 'https://prime.exchangerate-api.com/v5/' //Example: https://prime.exchangerate-api.com/v5/YOUR-API-KEY/latest/USD
-
-    // let code = 'usd'.toUpperCase()
-
-
-    // $('#submit').on('click', () => {
-    //     code = $('#u-input').val();
-    //     code = code.trim().toUpperCase()
-
-
-
-    //     let checkInput = curerncies.some((type) => {
-    //         return type.code === code
-    //     })
-
-
-
-    //     if (checkInput) {
-    //         console.log(code)
-    //         let getRequest = endPoint + key + '/latest/' + code
-
-    //         let request = $.ajax({
-    //             url: getRequest,
-    //             method: "GET"
-    //         })
-
-    //         request.done((data) => {
-    //             console.log(data.conversion_rates)
-    //             console.log(Object.keys(data.conversion_rates))
-    //         })
-
-
-    //     } else {
-    //         console.log("Error")
-    //         let getRequest = endPoint + key + '/latest/USD'
-
-    //         let request = $.ajax({
-    //             url: getRequest,
-    //             method: "GET"
-    //         })
-
-    //         request.done((data) => {
-    //             console.log(data.conversion_rates)
-    //             console.log(Object.keys(data.conversion_rates))
-    //         })
-
-    //     }
-
-
-
-    // })
-
-
+    /**Mobile Menu Controls... */
+    // Open mobile menu...
     $('#open-mobile-btn').on('click', () => {
         $('#open-mobile-btn').css({
             display: 'none'
@@ -528,7 +585,7 @@ $(function () {
             })
         }
     })
-
+    // Close mobile menu
     $('#close-mobile-btn').on('click', () => {
         $('#open-mobile-btn').css({
             display: 'flex'
@@ -540,6 +597,14 @@ $(function () {
             })
         }
     })
+
+    /**Page Load Function Calls... */
+    init()
+    convertInit()
+
+
+
+
 
 
 })

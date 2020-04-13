@@ -7,3 +7,62 @@ font-family: 'Open Sans', sans-serif;
 Colors:
 $mint: '#ADEFD1FF'
 $sailor-blue: '#00203FFF'
+
+Optimized Images:
+https://i.postimg.cc/5NGkQFYf/colombia.png
+https://i.postimg.cc/3wQSn5F6/croatia.png
+https://i.postimg.cc/nzHdf45G/czech.png
+https://i.postimg.cc/q7cmFbm7/denmark.png
+https://i.postimg.cc/nz03Fsfb/india.png
+https://i.postimg.cc/htdZLPTT/indonesia.png
+https://i.postimg.cc/Vvh4t3NK/israel.png
+https://i.postimg.cc/XqqQpVnZ/japan.png
+https://i.postimg.cc/sfHTbZJ5/peru.png
+https://i.postimg.cc/qMt1rMmS/philippines.png
+https://i.postimg.cc/9FvJQ5KM/poland.png
+https://i.postimg.cc/ZR7Lk16J/product.png *
+https://i.postimg.cc/NjmbyCvx/thailand.png
+https://i.postimg.cc/bJNRBzD6/turkey.png
+https://i.postimg.cc/Xvg8LZJG/ukraine.png
+https://i.postimg.cc/vmyh57Qw/united-arab-emirates.png
+https://i.postimg.cc/Y2vPr30d/brazil.png
+https://i.postimg.cc/Z58FY967/bulgaria.png
+https://i.postimg.cc/B6V272G6/canada.png
+https://i.postimg.cc/GpzFYZ7v/chile.png
+https://i.postimg.cc/vmG74QzQ/china.png
+https://i.postimg.cc/wvvhk0ZZ/great-britain.png
+https://i.postimg.cc/jCVPtK2Y/guatemala.png
+https://i.postimg.cc/J0HZft1Q/hong-kong.png
+https://i.postimg.cc/nVNPCDQp/hungary.png
+https://i.postimg.cc/hPx3xt9x/iceland.png
+https://i.postimg.cc/Hkgvt12N/new-zealand.png
+https://i.postimg.cc/1zWWPnQx/norway.png
+https://i.postimg.cc/Z5x77ss5/pakistan.png
+https://i.postimg.cc/7LPBp1jM/panama.png
+https://i.postimg.cc/63yMQWW8/paraguay.png
+https://i.postimg.cc/MTNdMCHd/south-africa.png
+https://i.postimg.cc/d3Cn85Tv/south-korea.png
+https://i.postimg.cc/3r0L5xf6/sweden.png
+https://i.postimg.cc/3JMtKQPw/switzerland.png
+https://i.postimg.cc/Qxp0Cn3J/taiwan.png
+https://i.postimg.cc/VstFZHdP/accuracy.png *
+https://i.postimg.cc/W1886FtD/argentina.png
+https://i.postimg.cc/9ffpxmqL/australia.png
+https://i.postimg.cc/GpSjVWFd/bahamas.png
+https://i.postimg.cc/fRD59jWn/dominican-republic.png
+https://i.postimg.cc/KjtrK4d8/egypt.png
+https://i.postimg.cc/SsBfNc1P/european.png
+https://i.postimg.cc/ydgTHLj9/fiji.png
+https://i.postimg.cc/YqfzMG6X/kazakhstan.png
+https://i.postimg.cc/gkPHCqZX/malaysia.png
+https://i.postimg.cc/L89BX9vm/mexico.png
+https://i.postimg.cc/wMYDdg78/multi-currency.png*
+https://i.postimg.cc/L8xkgc0L/romania.png
+https://i.postimg.cc/253QQ0PJ/russia.png
+https://i.postimg.cc/3Rv26drF/saudi-arabia.png
+https://i.postimg.cc/YSV1b17S/singapore.png
+https://i.postimg.cc/SRLCS3MX/united-states.png
+https://i.postimg.cc/Ghrv7LWv/unlocked.png*
+https://i.postimg.cc/44pzQ7SJ/uruguay.png
+https://i.postimg.cc/zXjK9mN6/world.png*
+

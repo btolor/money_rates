@@ -124,9 +124,11 @@ main
             text-align: center
             position: relative
             padding-top: 80px
+            +media-max(640px)
+                padding-bottom: 26px
             #title
                 font-family: $sub-title
-                color: $raven 
+                color: $sailor-blue
                 font-size: 48px
                 margin-bottom: 40px
                 +media-max(700px)
@@ -135,81 +137,48 @@ main
                     font-size: 36px
                 +media-max(375px)
                     font-size: 28px
-            .to-convert
-                align-items: center
-                +fullFlex(flex,row,flex-end)
-                +media-exact(1024px)
-                    margin: 0 0 28px
-                    flex-direction: row
-                    width: 54%
-                +media-max(1024px)
-                    flex-direction: row-reverse
-                    justify-content: center
-                    margin-bottom: 28px
-                input[type=number]
+            .convert-fields 
+                +center(60%, 0 auto)
+                padding: 0 160px
+                +media-max(1050px)
+                    padding: 0 100px
+                +media-max(880px)
+                    padding: 0 70px
+                +media-max(768px)
+                    padding: 0 40px
+                +media-max(620px)
+                    padding: 0 
+                +media-max(500px)
+                    width: 75%
+                +media-max(360px)
+                    width: 85%
+                input 
                     border: 2px solid $sailor-blue
                     border-radius: 10px
                     color: $raven
                     font-size: 24px
-                    width: 250px
-                    margin-bottom: 0
-                    +media-max(640px)
+                    margin-bottom: 20px
+                    +media-max(768px)
                         font-size: 20px
-                    +media-max(475px)
-                        width: 126px
-                #convert-currency
-                    width: 150px
-                    border: 2px solid $sailor-blue
+                select 
+                    margin-bottom: 20px
                     border-radius: 10px
-                    margin-left: 30px
+                    border: 2px solid $sailor-blue
                     color: $sailor-blue
                     font-family: $font-text
-                    font-weight: 800
-                    font-size: 24px
-                    margin-bottom: 0
-                    +media-max(1024px)
-                        margin-left: 0
-                        margin-right: 30px
-                    +media-max(640px)
+                    font-weight: 600
+                    font-size: 22px
+                    +media-max(768px)
                         font-size: 20px
-                    +media-max(475px)
-                        width: 120px
-                        margin-right: 15px
+                    +media-max(388px)
+                        font-size: 18px
                     option 
                         color: $sailor-blue
                         font-family: $font-text
                         line-height: 1.5
                         font-size: 20
-            .convert-to
-                +fullFlex(flex,row,flex-start)
-                align-items: center
-                +media-exact(1024px)
-                    margin: 0 0 28px
-                +media-max(1024px)
-                    justify-content: center
-                    margin-bottom: 28px
-                #convert-to-currency
-                    align-self:
-                    width: 150px
-                    border: 2px solid $sailor-blue
-                    border-radius: 10px
-                    margin-bottom: 0
-                    color: $sailor-blue
-                    font-family: $font-text
-                    font-weight: 800
-                    font-size: 24px
-                    +media-max(1024px)
-                        margin-right: 30px
-                    +media-max(640px)
-                        font-size: 20px
-                    +media-max(475px)
-                        width: 120px
-                        margin-right: 15px
-                    option 
-                        color: $sailor-blue
-                        font-family: $font-text
-                        line-height: 1.5
-                        font-size: 20
+                        +media-max(388px)
+                            font-size: 18px
                 #convert-btn
                     background: $sailor-blue
                     color: white
@@ -217,44 +186,18 @@ main
                     border-radius: 10px
                     font-size: 24px
                     margin-bottom: 0
-                    margin-left: 30px
-                    width: 60px
-                    height: 39px
+                    margin-top: 12px
+                    padding: 6px 18px
                     transition: .3s
                     .fa 
                         padding: 0
                     &:hover
                         color: $mint
                         border-color: $mint
-                    +media-max(1024px)
-                        display: none
-                #responsive-btn
-                    display: none
-                    background: $sailor-blue
-                    color: white
-                    border: 2px solid $sailor-blue
-                    border-radius: 10px
-                    font-size: 24px
-                    margin-bottom: 0
-                    height: 39px
-                    width: 250px
-                    // padding-left: 20px
-                    // padding-right: 20px 
-                    transition: .3s
-                    .fa 
-                        padding: 0
-                    &:hover
-                        color: $mint
-                        border-color: $mint
-                    +media-max(1024px)
-                        display: block
-                    +media-max(640px)
-                        font-size: 20px
-                    +media-max(475px)
-                        width: 126px
     .results
         .grid
             +fullFlex(flex,row,center)
+            padding: 40px 0 20px
             +media-max(640px)
                 padding-top: 20px
             .original
@@ -278,12 +221,23 @@ main
                     margin-bottom: 0
                     +media-max(800px)
                         font-size: 32px
-            span 
+                #convert-code 
+                    color: $sailor-blue 
+                    font-size: 32px
+                    font-weight: 600
+                    font-family: $font-text
+                    padding-left: 10px
+                    padding-bottom: 4px 
+                    align-self: flex-end
+                    +media-max(800px)
+                        font-size: 16px
+            .exchange 
+                align-self: center
                 text-align: center
-                font-size: 100px
-                font-family: $font-text
                 +media-max(640px)
                     display: none
+                img 
+                    width: 50px
             .result
                 +fullFlex(flex,row,flex-start)
                 align-items: center
@@ -305,6 +259,16 @@ main
                     margin-bottom: 0
                     +media-max(800px)
                         font-size: 32px
+                #converted-code 
+                    color: $sailor-blue 
+                    font-size: 32px
+                    font-weight: 600
+                    font-family: $font-text
+                    padding-left: 10px
+                    padding-bottom: 4px 
+                    align-self: flex-end
+                    +media-max(800px)
+                        font-size: 16px
     .calcu-rates
         .grid
             padding: 30px 180px
@@ -321,7 +285,7 @@ main
             .rate
                 border-radius: 8px
                 border: 1px solid $raven
-                border-top: none
+                border-left: none
                 padding-bottom: 8px
                 -moz-box-shadow: 0 8px 6px -6px $raven
                 -webkit-box-shadow: 0 8px 6px -6px $raven
@@ -330,7 +294,6 @@ main
                 background: white
                 .stats
                     padding: 18px 40px 0
-                    border-top: 3px solid green
                     -webkit-border-top-left-radius: 8px
                     -webkit-border-top-right-radius: 8px
                     -moz-border-radius-topleft: 8px
@@ -372,6 +335,15 @@ main
                         font-size: 20px
                     +media-max(380px)
                         font-size: 18px
+                    span 
+                        font-weight: 700
+                        color: $sailor-blue
+                        padding-left: 4px
+                        font-size: 20px
+                        +media-max(900px)
+                            font-size: 18px
+                        +media-max(380px)
+                            font-size: 16px
     // Top-Section Styles...
     .top
         .grid-container
@@ -536,7 +508,7 @@ main
             text-align: center
             #title
                 font-family: $sub-title
-                color: $raven 
+                color: $sailor-blue
                 font-size: 48px
                 margin-bottom: 0
                 +media-max(700px)
@@ -613,7 +585,6 @@ main
                         background: $sailor-blue
                         .stats
                             padding: 18px 40px 0
-                            border-top: 3px solid green
                             -webkit-border-top-left-radius: 8px
                             -webkit-border-top-right-radius: 8px
                             -moz-border-radius-topleft: 8px
@@ -655,6 +626,15 @@ main
                                 font-size: 20px
                             +media-max(380px)
                                 font-size: 18px
+                            span 
+                                font-weight: 700
+                                color: $mint
+                                padding-left: 4px
+                                font-size: 20px
+                                +media-max(900px)
+                                    font-size: 18px
+                                +media-max(380px)
+                                    font-size: 16px
 // Footer-Section Styles...
 footer 
     background: $sailor-blue

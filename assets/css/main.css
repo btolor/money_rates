@@ -205,9 +205,15 @@ main .converter .grid {
   padding-top: 80px;
 }
 
+@media screen and (max-width: 640px) {
+  main .converter .grid {
+    padding-bottom: 26px;
+  }
+}
+
 main .converter .grid #title {
   font-family: "Playfair Display", serif;
-  color: #373d3f;
+  color: #00203FFF;
   font-size: 48px;
   margin-bottom: 40px;
 }
@@ -230,242 +236,117 @@ main .converter .grid #title {
   }
 }
 
-main .converter .grid .to-convert {
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+main .converter .grid .convert-fields {
+  width: 60%;
+  margin: 0 auto;
+  padding: 0 160px;
 }
 
-@media screen and (min-width: 1024px) and (max-width: 1024px) {
-  main .converter .grid .to-convert {
-    margin: 0 0 28px;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    width: 54%;
+@media screen and (max-width: 1050px) {
+  main .converter .grid .convert-fields {
+    padding: 0 100px;
   }
 }
 
-@media screen and (max-width: 1024px) {
-  main .converter .grid .to-convert {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: reverse;
-        -ms-flex-direction: row-reverse;
-            flex-direction: row-reverse;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    margin-bottom: 28px;
+@media screen and (max-width: 880px) {
+  main .converter .grid .convert-fields {
+    padding: 0 70px;
   }
 }
 
-main .converter .grid .to-convert input[type=number] {
+@media screen and (max-width: 768px) {
+  main .converter .grid .convert-fields {
+    padding: 0 40px;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  main .converter .grid .convert-fields {
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  main .converter .grid .convert-fields {
+    width: 75%;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  main .converter .grid .convert-fields {
+    width: 85%;
+  }
+}
+
+main .converter .grid .convert-fields input {
   border: 2px solid #00203FFF;
   border-radius: 10px;
   color: #373d3f;
   font-size: 24px;
-  width: 250px;
-  margin-bottom: 0;
+  margin-bottom: 20px;
 }
 
-@media screen and (max-width: 640px) {
-  main .converter .grid .to-convert input[type=number] {
+@media screen and (max-width: 768px) {
+  main .converter .grid .convert-fields input {
     font-size: 20px;
   }
 }
 
-@media screen and (max-width: 475px) {
-  main .converter .grid .to-convert input[type=number] {
-    width: 126px;
-  }
-}
-
-main .converter .grid .to-convert #convert-currency {
-  width: 150px;
-  border: 2px solid #00203FFF;
+main .converter .grid .convert-fields select {
+  margin-bottom: 20px;
   border-radius: 10px;
-  margin-left: 30px;
+  border: 2px solid #00203FFF;
   color: #00203FFF;
   font-family: "Raleway", "Open Sans", sans-serif;
-  font-weight: 800;
-  font-size: 24px;
-  margin-bottom: 0;
+  font-weight: 600;
+  font-size: 22px;
 }
 
-@media screen and (max-width: 1024px) {
-  main .converter .grid .to-convert #convert-currency {
-    margin-left: 0;
-    margin-right: 30px;
-  }
-}
-
-@media screen and (max-width: 640px) {
-  main .converter .grid .to-convert #convert-currency {
+@media screen and (max-width: 768px) {
+  main .converter .grid .convert-fields select {
     font-size: 20px;
   }
 }
 
-@media screen and (max-width: 475px) {
-  main .converter .grid .to-convert #convert-currency {
-    width: 120px;
-    margin-right: 15px;
+@media screen and (max-width: 388px) {
+  main .converter .grid .convert-fields select {
+    font-size: 18px;
   }
 }
 
-main .converter .grid .to-convert #convert-currency option {
+main .converter .grid .convert-fields select option {
   color: #00203FFF;
   font-family: "Raleway", "Open Sans", sans-serif;
   line-height: 1.5;
   font-size: 20;
 }
 
-main .converter .grid .convert-to {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-@media screen and (min-width: 1024px) and (max-width: 1024px) {
-  main .converter .grid .convert-to {
-    margin: 0 0 28px;
+@media screen and (max-width: 388px) {
+  main .converter .grid .convert-fields select option {
+    font-size: 18px;
   }
 }
 
-@media screen and (max-width: 1024px) {
-  main .converter .grid .convert-to {
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    margin-bottom: 28px;
-  }
-}
-
-main .converter .grid .convert-to #convert-to-currency {
-  width: 150px;
-  border: 2px solid #00203FFF;
-  border-radius: 10px;
-  margin-bottom: 0;
-  color: #00203FFF;
-  font-family: "Raleway", "Open Sans", sans-serif;
-  font-weight: 800;
-  font-size: 24px;
-}
-
-@media screen and (max-width: 1024px) {
-  main .converter .grid .convert-to #convert-to-currency {
-    margin-right: 30px;
-  }
-}
-
-@media screen and (max-width: 640px) {
-  main .converter .grid .convert-to #convert-to-currency {
-    font-size: 20px;
-  }
-}
-
-@media screen and (max-width: 475px) {
-  main .converter .grid .convert-to #convert-to-currency {
-    width: 120px;
-    margin-right: 15px;
-  }
-}
-
-main .converter .grid .convert-to #convert-to-currency option {
-  color: #00203FFF;
-  font-family: "Raleway", "Open Sans", sans-serif;
-  line-height: 1.5;
-  font-size: 20;
-}
-
-main .converter .grid .convert-to #convert-btn {
+main .converter .grid .convert-fields #convert-btn {
   background: #00203FFF;
   color: white;
   border: 2px solid #00203FFF;
   border-radius: 10px;
   font-size: 24px;
   margin-bottom: 0;
-  margin-left: 30px;
-  width: 60px;
-  height: 39px;
+  margin-top: 12px;
+  padding: 6px 18px;
   -webkit-transition: .3s;
   transition: .3s;
 }
 
-main .converter .grid .convert-to #convert-btn .fa {
+main .converter .grid .convert-fields #convert-btn .fa {
   padding: 0;
 }
 
-main .converter .grid .convert-to #convert-btn:hover {
+main .converter .grid .convert-fields #convert-btn:hover {
   color: #ADEFD1FF;
   border-color: #ADEFD1FF;
-}
-
-@media screen and (max-width: 1024px) {
-  main .converter .grid .convert-to #convert-btn {
-    display: none;
-  }
-}
-
-main .converter .grid .convert-to #responsive-btn {
-  display: none;
-  background: #00203FFF;
-  color: white;
-  border: 2px solid #00203FFF;
-  border-radius: 10px;
-  font-size: 24px;
-  margin-bottom: 0;
-  height: 39px;
-  width: 250px;
-  -webkit-transition: .3s;
-  transition: .3s;
-}
-
-main .converter .grid .convert-to #responsive-btn .fa {
-  padding: 0;
-}
-
-main .converter .grid .convert-to #responsive-btn:hover {
-  color: #ADEFD1FF;
-  border-color: #ADEFD1FF;
-}
-
-@media screen and (max-width: 1024px) {
-  main .converter .grid .convert-to #responsive-btn {
-    display: block;
-  }
-}
-
-@media screen and (max-width: 640px) {
-  main .converter .grid .convert-to #responsive-btn {
-    font-size: 20px;
-  }
-}
-
-@media screen and (max-width: 475px) {
-  main .converter .grid .convert-to #responsive-btn {
-    width: 126px;
-  }
 }
 
 main .results .grid {
@@ -479,6 +360,7 @@ main .results .grid {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  padding: 40px 0 20px;
 }
 
 @media screen and (max-width: 640px) {
@@ -539,16 +421,38 @@ main .results .grid .original .dollar {
   }
 }
 
-main .results .grid span {
-  text-align: center;
-  font-size: 100px;
+main .results .grid .original #convert-code {
+  color: #00203FFF;
+  font-size: 32px;
+  font-weight: 600;
   font-family: "Raleway", "Open Sans", sans-serif;
+  padding-left: 10px;
+  padding-bottom: 4px;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+@media screen and (max-width: 800px) {
+  main .results .grid .original #convert-code {
+    font-size: 16px;
+  }
+}
+
+main .results .grid .exchange {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  text-align: center;
 }
 
 @media screen and (max-width: 640px) {
-  main .results .grid span {
+  main .results .grid .exchange {
     display: none;
   }
+}
+
+main .results .grid .exchange img {
+  width: 50px;
 }
 
 main .results .grid .result {
@@ -603,6 +507,23 @@ main .results .grid .result .dollar {
   }
 }
 
+main .results .grid .result #converted-code {
+  color: #00203FFF;
+  font-size: 32px;
+  font-weight: 600;
+  font-family: "Raleway", "Open Sans", sans-serif;
+  padding-left: 10px;
+  padding-bottom: 4px;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+@media screen and (max-width: 800px) {
+  main .results .grid .result #converted-code {
+    font-size: 16px;
+  }
+}
+
 main .calcu-rates .grid {
   padding: 30px 180px;
 }
@@ -640,7 +561,7 @@ main .calcu-rates .grid {
 main .calcu-rates .grid .rate {
   border-radius: 8px;
   border: 1px solid #373d3f;
-  border-top: none;
+  border-left: none;
   padding-bottom: 8px;
   -webkit-box-shadow: 0 8px 6px -6px #373d3f;
   box-shadow: 0 8px 6px -6px #373d3f;
@@ -650,7 +571,6 @@ main .calcu-rates .grid .rate {
 
 main .calcu-rates .grid .rate .stats {
   padding: 18px 40px 0;
-  border-top: 3px solid green;
   -webkit-border-top-left-radius: 8px;
   -webkit-border-top-right-radius: 8px;
   -moz-border-radius-topleft: 8px;
@@ -731,6 +651,25 @@ main .calcu-rates .grid .rate p {
 @media screen and (max-width: 380px) {
   main .calcu-rates .grid .rate p {
     font-size: 18px;
+  }
+}
+
+main .calcu-rates .grid .rate p span {
+  font-weight: 700;
+  color: #00203FFF;
+  padding-left: 4px;
+  font-size: 20px;
+}
+
+@media screen and (max-width: 900px) {
+  main .calcu-rates .grid .rate p span {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  main .calcu-rates .grid .rate p span {
+    font-size: 16px;
   }
 }
 
@@ -1023,7 +962,7 @@ main .rates .selector-sec {
 
 main .rates .selector-sec #title {
   font-family: "Playfair Display", serif;
-  color: #373d3f;
+  color: #00203FFF;
   font-size: 48px;
   margin-bottom: 0;
 }
@@ -1178,7 +1117,6 @@ main .rates .selector-sec .exchange-rates .grid .rate {
 
 main .rates .selector-sec .exchange-rates .grid .rate .stats {
   padding: 18px 40px 0;
-  border-top: 3px solid green;
   -webkit-border-top-left-radius: 8px;
   -webkit-border-top-right-radius: 8px;
   -moz-border-radius-topleft: 8px;
@@ -1259,6 +1197,25 @@ main .rates .selector-sec .exchange-rates .grid .rate p {
 @media screen and (max-width: 380px) {
   main .rates .selector-sec .exchange-rates .grid .rate p {
     font-size: 18px;
+  }
+}
+
+main .rates .selector-sec .exchange-rates .grid .rate p span {
+  font-weight: 700;
+  color: #ADEFD1FF;
+  padding-left: 4px;
+  font-size: 20px;
+}
+
+@media screen and (max-width: 900px) {
+  main .rates .selector-sec .exchange-rates .grid .rate p span {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  main .rates .selector-sec .exchange-rates .grid .rate p span {
+    font-size: 16px;
   }
 }
 

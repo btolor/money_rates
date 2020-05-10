@@ -357,7 +357,7 @@ $(function () {
 
         // Executes the html method to change the inner html of the dom element with the id of current-value...
         $('#current-value').html(
-            currentCurrency[0].symbol + '  1'
+            currentCurrency[0].symbol + '  1.00'
         )
 
         // Initializes and sets the getRquest variable with the GET request url...
@@ -391,11 +391,11 @@ $(function () {
                     // If True:
                     // Executes the append method on the html element with the class of grid inside of the html element with the class of exchange-rates...
                     $(".exchange-rates .grid").append(
-                        "<!-- start of rate --><div class='cell small-12 medium-6 large-6 rate' style='border-top: 1px solid " + colors[counter] + ";'>" +
-                        "<!-- start of stats --><div class='stats' style='border-top: 5px solid " + colors[counter] + ";'>" +
+                        "<!-- start of rate --><div class='cell small-12 medium-6 large-6 rate' style='border-left: 5px solid " + colors[counter] + ";'>" +
+                        "<!-- start of stats --><div class='stats'>" +
                         "<img class='flag' src=" + currency.flag + "  alt='This is the country flag of my current currency.'>" +
                         "<h6 class='currency'>" + currency.currency + "</h6></div><hr><!-- end of stats --><p>" + currency.symbol + " " + data.conversion_rates[currency.code] +
-                        "</p></div><!-- end of rate -->"
+                        "  <span>(" +  currency.code + ")</span></p></div><!-- end of rate -->"
                     )
 
                 }
@@ -439,7 +439,7 @@ $(function () {
 
         // Executes the append method on the html element with the id of convert-currency to add an html option element...
         $('#convert-currency').append(
-            "<option value=" + conversionCurrency[0].code + ">" + conversionCurrency[0].symbol + "  " + conversionCurrency[0].code + "</option>"
+            "<option value=" + conversionCurrency[0].code + ">" + conversionCurrency[0].symbol + "  " + conversionCurrency[0].code + " " + conversionCurrency[0].currency + "</option>"
         )
 
         // For each method to loop through each element inside of the currencies array...
@@ -449,7 +449,7 @@ $(function () {
                 // If True:
                 // Executes the append method on the html element with the id of convert-currency to add html option elements for each country...
                 $('#convert-currency').append(
-                    "<option value=" + c.code + ">" + c.symbol + "  " + c.code + "</option>"
+                    "<option value=" + c.code + ">" + c.symbol + "  " + c.code + " " + c.currency + "</option>"
                 )
             }
         })
@@ -458,7 +458,7 @@ $(function () {
         curerncies.forEach((c) => {
             // Executes the append method on the html element with the id of convert-to-currency to add html option elements for each country...
             $('#convert-to-currency').append(
-                "<option value=" + c.code + ">" + c.symbol + "  " + c.code + "</option>"
+                "<option value=" + c.code + ">" + c.symbol + "  " + c.code + " "+ c.currency +"</option>"
             )
         })
 
@@ -503,11 +503,11 @@ $(function () {
                     // If True:
                     // Executes the append method on the html element with the class of grid inside of the html element with the class of calcu-rates...
                     $(".calcu-rates .grid").append(
-                        "<!-- start of rate --><div class='cell small-12 medium-6 large-6 rate' style='border-top: 1px solid " + colors[counter] + ";'>" +
-                        "<!-- start of stats --><div class='stats' style='border-top: 5px solid " + colors[counter] + ";'>" +
+                        "<!-- start of rate --><div class='cell small-12 medium-6 large-6 rate' style='border-left: 5px solid " + colors[counter] + ";'>" +
+                        "<!-- start of stats --><div class='stats'>" +
                         "<img class='flag' src=" + currency.flag + "  alt='This is the country flag of my current currency.'>" +
                         "<h6 class='currency'>" + currency.currency + "</h6></div><hr><!-- end of stats --><p>" + currency.symbol + " " 
-                        + data.conversion_rates[currency.code] + "</p></div><!-- end of rate -->"
+                        + data.conversion_rates[currency.code] + "  <span>(" +  currency.code + ")</span></p></div><!-- end of rate -->"
                     )
                 }
                 // Increment the counter variable by 1...
@@ -548,7 +548,7 @@ $(function () {
         )
         // Executes the html method to change the inner html of the dom element with the id of current-value...
         $('#current-value').html(
-            currentCurrency[0].symbol + '  1'
+            currentCurrency[0].symbol + '  1.00'
         )
 
         // Executes the remove method to remove all html elements with a class of rate...
@@ -584,11 +584,11 @@ $(function () {
                     // If True:
                     // Executes the append method on the html element with the class of grid inside of the html element with the class of exchange-rates...
                     $(".exchange-rates .grid").append(
-                        "<!-- start of rate --><div class='cell small-12 medium-6 large-6 rate' style='border-top: 1px solid " + colors[counter] + ";'>" +
-                        "<!-- start of stats --><div class='stats' style='border-top: 5px solid " + colors[counter] + ";'>" +
+                        "<!-- start of rate --><div class='cell small-12 medium-6 large-6 rate' style='border-left: 5px solid " + colors[counter] + ";'>" +
+                        "<!-- start of stats --><div class='stats'>" +
                         "<img class='flag' src=" + currency.flag + "  alt='This is the country flag of my current currency.'>" +
                         "<h6 class='currency'>" + currency.currency + "</h6></div><hr><!-- end of stats --><p>" + currency.symbol + " " + data.conversion_rates[currency.code] +
-                        "</p></div><!-- end of rate -->"
+                        "  <span>(" +  currency.code + ")</span></p></div><!-- end of rate -->"
                     )
                 }
                 // Increment the counter variable by 1...
@@ -629,17 +629,20 @@ $(function () {
         let ammount;
 
         // If statement to check the value of the html #convet-num element...
-        if ($('#convert-num').val() <= 0) {
+        if ($('#convert-num').val() <= 0.01) {
             // If True:
             // Sets the ammount variable value to 1 rounded to 2 decimal places...
-            ammount = Number(1).toFixed(2)
+            ammount = 1.00
             // Executes the val method to set the html #convert-num element to 1...
-            $('#convert-num').val(1)
+            $('#convert-num').val(ammount)
         } else {
             // If False:
             // Sets the ammount variable value to user's input rounded to 2 decimal places...
             ammount = Number($('#convert-num').val()).toFixed(2)
         }
+        
+
+        $('#convert-num').val(ammount)
 
         // Initializes and sets the convertType variable to the value of the #convert-currency html element using the val method...
         let convertType = $('#convert-currency').val()
@@ -660,6 +663,7 @@ $(function () {
          * location... 
          * */
         $('.original img').attr('src', convertObject[0].flag)
+        $('#convert-code').html("(" + convertObject[0].code + ")")
 
         // Initializes and sets the convertToType variable to the value of the #convert-to-currency html element using the val method...
         let convertToType = $('#convert-to-currency').val()
@@ -680,6 +684,7 @@ $(function () {
          * location... 
          * */
         $('.result img').attr('src', convertToObject[0].flag)
+        $('#converted-code').html("(" + convertToObject[0].code + ")")
 
         // Executes the remove method to remove all html elements with a class of rate...
         $('.rate').remove()
@@ -719,8 +724,11 @@ $(function () {
             // Executes the html method to change the inner html of the dom element with the class of dollar...
             $('.dollar').html(convertObject[0].symbol + " " + ammount)
 
+            // let convertedAmmount = ammount * data.conversion_rates[convertToObject[0].code]
+            let convertAmmount = data.conversion_rates[convertToObject[0].code]
+
             // Executes the html method to change the inner html of the dom element with the class of converted-dollar...
-            $('.converted-dollar').html(convertToObject[0].symbol + " " + (ammount * data.conversion_rates[convertToObject[0].code].toFixed(2)))
+            $('.converted-dollar').html(convertToObject[0].symbol + " " + (ammount * convertAmmount).toFixed(2))
             
             // Creates an initializes a counter variable to 0...
             let counter = 0
@@ -730,14 +738,17 @@ $(function () {
                 // If statement to check the value of the currency.code with the value of the convertObject[0].code...
                 if (currency.code != convertObject[0].code) {
                     // If True:
+
+                    let rateAmmount = data.conversion_rates[currency.code]
+
                     // Executes the append method on the html element with the class of grid inside of the html element with the class of calcu-rates...
                     $(".calcu-rates .grid").append(
                         // Creates a block of html markup...
-                        "<!-- start of rate --><div class='cell small-12 medium-6 large-6 rate' style='border-top: 1px solid " + colors[counter] + ";'>" +
-                        "<!-- start of stats --><div class='stats' style='border-top: 5px solid " + colors[counter] + ";'>" +
+                        "<!-- start of rate --><div class='cell small-12 medium-6 large-6 rate' style='border-left: 5px solid " + colors[counter] + ";'>" +
+                        "<!-- start of stats --><div class='stats'>" +
                         "<img class='flag' src=" + currency.flag + "  alt='This is the country flag of my current currency.'>" +
                         "<h6 class='currency'>" + currency.currency + "</h6></div><hr><!-- end of stats --><p>" +
-                        currency.symbol + " " + (data.conversion_rates[currency.code] * ammount).toFixed(2) + "</p></div><!-- end of rate -->"
+                        currency.symbol + " " + (rateAmmount * ammount).toFixed(2) + "  <span>(" +  currency.code + ")</span></p></div><!-- end of rate -->"
                     )
                 }
                 // Increment the counter variable by 1...
@@ -745,6 +756,11 @@ $(function () {
             })
         })
     }
+
+
+    $('#convert-num').focus(()=> { 
+        $('#convert-num').val("")  
+    })
 
     /**Data Events */
     // Home Page Change Event...
@@ -768,7 +784,7 @@ $(function () {
      * click event function that calls the conversion function... 
      * */
     // Executes the on method with a click function...
-    $('#convert-btn, #responsive-btn').on('click', () => {
+    $('#convert-btn').on('click', () => {
         // Calls the Conversion Function...
         conversion()
     })
